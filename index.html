@@ -22,7 +22,9 @@
             <section class="voting-section">
                 <h2>Seu voto é importante!</h2>
                 <p>Use o formulário abaixo para registrar sua escolha.</p>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfrLe_SRq6opkiJlv7wQec3kdmAPq8CIof837_rblmfC-N_pA/viewform?embedded=true" width="700" height="520" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+                <div class="iframe-container">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfrLe_SRq6opkiJlv7wQec3kdmAPq8CIof837_rblmfC-N_pA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+                </div>                
                 <p class="small-text">Lembre-se: cada aluno pode votar apenas uma vez.</p>
             </section>
         </div>
@@ -33,5 +35,12 @@
             <p>&copy; 2025 E.E. Carolina Cintra da Silveira. Todos os direitos reservados.</p>
         </div>
     </footer>
+    <script>
+        window.addEventListener('load', () => {
+          const titulo = document.querySelector('header h1');
+          titulo.classList.add('visible');
+        });
+      </script>
+      
 </body>
 </html>
