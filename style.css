@@ -17,39 +17,47 @@ body {
 
 /* Cabeçalho */
 header {
-    background-image: url('img/foto_sarau.jpeg'); /* Caminho para a imagem de fundo do cabeçalho */
+    background-image: url('img/foto_sarau.jpeg');
     color: #fff;
-    text-align: center;            /* Alinha o conteúdo no centro */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Sombra suave no cabeçalho */
-    background-size: cover;       /* A imagem cobrirá toda a área do cabeçalho */
-    background-position: center;  /* Centraliza a imagem */
-    height: 300px;                /* Ajuste a altura do cabeçalho */
-    padding: 0;                   /* Remove o padding padrão */
-    position: relative;           /* Necessário para outros ajustes, se houver */
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-size: cover;
-    background-position: center top -50px; /* posição inicial */
-    padding: 25px 0px;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
+    padding: 25px 0;
+    position: relative;
 }
 
 .school-logo {
-    max-width: 120px; /* Tamanho do logo */
+    max-width: 120px;
     height: auto;
     margin-bottom: 10px;
-    border-radius: 50%; /* Logo circular (opcional) */
+    border-radius: 50%;
     border: 3px solid #fff;
-    top: 3;
     position: absolute;
     left: 3.8em;
+    top: 1em;
 }
 
-.nome_escola{
+.nome_escola {
     position: absolute;
     left: 1.0em;
 }
 
+/* Animação do título */
 header h1 {
     margin: 10px 0 5px;
     font-size: 2.2em;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+}
+
+/* Classe ativada via JS */
+header h1.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 header p {
@@ -61,6 +69,8 @@ header p {
 main {
     padding: 20px 0;
     background-image: url(./img/foto_fundo.jpeg);
+    background-size: cover;
+    background-position: center;
 }
 
 .voting-section {
@@ -98,14 +108,70 @@ footer {
     font-size: 0.9em;
 }
 
+/* Container responsivo para o iframe */
+.iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 70%;
+    height: 0;
+    overflow: hidden;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
 /* Responsividade */
+@media (max-width: 1024px) {
+    header {
+        height: 260px;
+    }
+
+    .school-logo {
+        max-width: 100px;
+        left: 2.5em;
+        top: 1em;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    .voting-section h2 {
+        font-size: 1.6em;
+    }
+}
+
 @media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    header {
+        height: 220px;
+    }
+
+    .school-logo {
+        max-width: 80px;
+        left: 1.5em;
+        top: 1em;
+    }
+
     header h1 {
         font-size: 1.8em;
     }
 
     header p {
-        font-size: 1em;
+        font-size: 0.95em;
     }
 
     .voting-section {
@@ -115,15 +181,21 @@ footer {
     .voting-section h2 {
         font-size: 1.5em;
     }
-
-    .school-logo {
-        max-width: 100px;
-    }
 }
 
 @media (max-width: 480px) {
     .container {
-        width: 95%;
+        width: 98%;
+    }
+
+    header {
+        height: 180px;
+    }
+
+    .school-logo {
+        max-width: 60px;
+        left: 1em;
+        top: 0.8em;
     }
 
     header h1 {
@@ -138,11 +210,11 @@ footer {
         padding: 15px;
     }
 
-    .school-logo {
-        max-width: 80px;
+    .voting-section h2 {
+        font-size: 1.3em;
     }
 
-    iframe {
-        height: 500px; /* Ajuste a altura do iframe para telas muito pequenas se necessário */
+    footer {
+        font-size: 0.8em;
     }
 }
